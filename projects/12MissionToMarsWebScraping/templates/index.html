@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet"  href="{{ url_for('static',filename='css/style.css') }}">
+
+</head>
+
+
+  <!-- Mission to Mars -->
+  <div class="container" style="padding:10px;">
+    <div class="jumbotron text-center ">
+      <h1 class="display-4"><strong><b>Mission to Mars</b> </strong> </h1>
+      <br>
+      <!-- <a class="btn btn-primary btn-lg" style="background-color: steelblue !important;" -->
+      <a class="btn btn-primary btn-lg u-bn-bgc"  
+        href="http://127.0.0.1:5000/scrape" role="button">Scrape New Data</a>
+      <br>
+    </div>
+
+    <!-- Latest Mars News -->
+    <div class="row">
+      <div class="col-md-12">
+        <h4> Latest Mars News </h4>
+        <!-- render templates with specific data by using Jinja template library -->
+        <h5>{{marsdata_html.latestnews_title}} </h5>
+        <p> {{marsdata_html.latestnews_p}}</p>
+      </div>
+    </div>
+
+    <!-- Featured Mars Image + Current Weather on Mars + Mars Facts -->
+    <div class="row ">
+      <div class="col-md-7">
+        <h4> Featured Mars Image </h4>
+        <!-- <img src={{marsdata_html.featured_image_url}} style="overflow:none; width:100%; height:auto" /> -->
+        <img src={{marsdata_html.featured_image_url}} class="u-i-o-w-h" /> 
+      </div>
+      <div class="col-md-5">
+        <!-- <div style="border: 1px solid lightgray!important; padding: 10px;"> -->
+        <div class="u-w-wrp-b-p"> 
+          <h5> Current Weather on Mars </h5>
+          <!-- <p style="font-size:15px; "> {{marsdata_html.latestmarsweather_tweet}} </p> -->
+          <p class="u-w-p-fz"> {{marsdata_html.latestmarsweather_tweet}} </p> 
+        </div>
+        <br>
+        <div>
+          <h5> Mars Facts </h5>
+          <table class="table table-sm table-bordered">
+            <thead>
+              <tr>
+                <th><b>fact</b></th>
+                <th><b>value</b></th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for row in  marsdata_html.thtd_dictlist  %}
+              <tr>
+                <!-- <th><b>{{row.fact|safe}}</b></th> -->
+                <th><b>{{row.fact}}</b></th>
+                <th>{{row.value}}</th>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <br>
+
+    <!-- Mars Hemispheres -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="container text-center">
+          <br>
+          <h4> Mars Hemispheres</h4>
+          <hr>
+        </div>
+        <div class="row justify-content-center">
+          <!-- <div class="col-md-5" style="margin:20px; padding:5px; border: 1px solid lightgray;" > -->
+          <div class="col-md-5 u-h-pic-col-m-p-b" > 
+            <!-- <img src={{(marsdata_html.hemisphere_dictlist)[0].img_url}} style="width: 100%;" /> -->
+            <img src={{(marsdata_html.hemisphere_dictlist)[0].img_url}} class="u-h-width-100" /> 
+            <br><br>
+            <p><b>{{(marsdata_html.hemisphere_dictlist)[0].title}}</b></p>
+          </div>
+          <div class="col-md-5 u-h-pic-col-m-p-b ">
+            <img src={{(marsdata_html.hemisphere_dictlist)[1].img_url}} class="u-h-width-100" />
+            <br><br>
+            <p><b>{{(marsdata_html.hemisphere_dictlist)[1].title}}</b></p>
+          </div>
+        </div>
+        <br>
+        <div class="row justify-content-center">
+          <div class="col-md-5  u-h-pic-col-m-p-b ">
+            <img  src={{(marsdata_html.hemisphere_dictlist)[2].img_url}}  class="u-h-width-100" />  
+            <br><br>
+            <p><b>{{(marsdata_html.hemisphere_dictlist)[2].title}}</b></p>
+          </div>
+          <div class="col-md-5  u-h-pic-col-m-p-b ">
+            <img src={{(marsdata_html.hemisphere_dictlist)[3].img_url}}   class="u-h-width-100" />
+            <br><br>
+            <p><b>{{(marsdata_html.hemisphere_dictlist)[3].title}}</b></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

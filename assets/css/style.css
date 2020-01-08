@@ -1,0 +1,24 @@
+.padding-10 div div{
+    padding:10px;
+}
+.col-md-5.font-purple {
+    color:purple;
+}
+.col-md-5.font-purple h4{
+    color:purple;
+    word-spacing: 10px;
+}
+.col-md-3.font-purple {
+    color:purple;
+}
+.col-md-3.font-purple h4{
+    color:purple;
+}
+.col-md-3 h2.heading {
+    word-spacing: 10px;
+    margin:auto;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: rgb(108, 44, 145) !important;
+}

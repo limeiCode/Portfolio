@@ -1,0 +1,21 @@
+.u-h-pic-col-m-p-b {
+   margin:20px !important;
+   padding:5px !important; 
+   border: 1px solid lightgray !important;
+  }
+
+.u-h-width-100 {width: 100%;}
+
+.u-w-p-fz { font-size:15px; }
+.u-w-wrp-b-p {
+  border: 1px solid lightgray!important; 
+  padding: 10px;
+}
+
+.u-i-o-w-h {
+  overflow:none; 
+  width:100%;
+  height:auto;
+}
+
+.u-bn-bgc { background-color: steelblue !important;} 
